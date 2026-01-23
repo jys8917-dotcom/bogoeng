@@ -119,38 +119,32 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk"></script>
 
 <script>
-    // 다른 스크립트와 충돌을 방지하기 위한 독립 실행
-    (function() {
-        function initMap() {
-            // 지도 초기화 (보고이엔지 좌표: 36.1042, 128.3848)
-            var map = new naver.maps.Map('naver_map', {
+    // 페이지가 완전히 로드된 후 실행되도록 보장
+    window.onload = function() {
+        if (typeof naver !== 'undefined') {
+            var mapOptions = {
                 center: new naver.maps.LatLng(36.1042, 128.3848),
                 zoom: 16
-            });
+            };
 
-            // 마커 생성
+            var map = new naver.maps.Map('naver_map', mapOptions);
+
             var marker = new naver.maps.Marker({
                 position: new naver.maps.LatLng(36.1042, 128.3848),
                 map: map
             });
 
-            // 정보창 생성
             var infowindow = new naver.maps.InfoWindow({
-                content: '<div style="padding:10px;min-width:150px;line-height:140%;text-align:center;">' +
+                content: '<div style="padding:10px;min-width:150px;line-height:140%;text-align:center;font-size:14px;">' +
                          '<b style="color:#2563EB;">보고 이엔지</b><br/>' +
                          '<span style="font-size:12px;color:#666;">경상북도 구미시 산호대로 130-9</span>' +
                          '</div>'
             });
 
-            // 정보창 열기
             infowindow.open(map, marker);
         }
-
-        // 페이지 로드 시 실행
-        window.addEventListener('load', initMap);
-    })();
+    };
 </script>
-
     <div class="space-y-4">
         <div class="flex items-start">
             <span class="font-bold w-20 text-blue-600">주소</span>
