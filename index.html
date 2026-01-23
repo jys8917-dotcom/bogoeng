@@ -254,27 +254,90 @@
         </div>
     </section>
 
-    <!-- Portfolio Placeholder (Optional) -->
-    <section class="py-24 px-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">주요 제작 사례</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Placeholders for images -->
-                <div class="aspect-square bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-300 transition cursor-pointer overflow-hidden group">
-                    <span class="group-hover:scale-110 transition duration-500">이미지 준비중</span>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="py-24 px-6 bg-gray-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">주요 제작 사례</h2>
+        
+        <div class="swiper portfolioSwiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden group relative">
+                        <img src="이미지_경로_1.jpg" alt="제작사례 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-bold">자세히 보기</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="aspect-square bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-300 transition cursor-pointer overflow-hidden group">
-                    <span class="group-hover:scale-110 transition duration-500">이미지 준비중</span>
+                <div class="swiper-slide">
+                    <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden group relative">
+                        <img src="이미지_경로_2.jpg" alt="제작사례 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-bold">자세히 보기</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="aspect-square bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-300 transition cursor-pointer overflow-hidden group">
-                    <span class="group-hover:scale-110 transition duration-500">이미지 준비중</span>
+                <div class="swiper-slide">
+                    <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden group relative">
+                        <img src="이미지_경로_3.jpg" alt="제작사례 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-bold">자세히 보기</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="aspect-square bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-300 transition cursor-pointer overflow-hidden group">
-                    <span class="group-hover:scale-110 transition duration-500">이미지 준비중</span>
+                <div class="swiper-slide">
+                    <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden group relative">
+                        <img src="이미지_경로_4.jpg" alt="제작사례 4" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-bold">자세히 보기</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="aspect-square bg-gray-200 rounded-xl overflow-hidden group relative">
+                        <img src="이미지_경로_5.jpg" alt="제작사례 5" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-bold">자세히 보기</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="swiper-pagination !-bottom-10"></div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper(".portfolioSwiper", {
+            slidesPerView: 2, // 모바일에서 보일 개수
+            spaceBetween: 16, // 간격
+            loop: true, // 무한 루프
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                // 태블릿 이상
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                // 데스크탑 이상
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                },
+            },
+        });
+    });
+</script>
 
     <!-- Contact & Footer -->
     <footer id="contact" class="bg-white pt-24 border-t border-gray-100">
