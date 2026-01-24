@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk&callback=initMap"></script>
 
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; }
@@ -295,29 +295,27 @@
             },
         });
 
-// --- 네이버 지도 실행 스크립트 (가장 확실한 실행 방식) ---
-window.onload = function() {
-    // 1. 지도가 들어갈 칸이 있는지 확인
+// window.onload 대신 블로그 권장 방식인 initMap 함수를 만듭니다.
+function initMap() {
     var mapElement = document.getElementById('map');
     if (!mapElement) return;
 
-    // 2. 지도 생성 (좌표: 산호대로 130-9 정답 좌표)
     var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
-    var map = new naver.maps.Map('map', {
+    var mapOptions = {
         center: bogoPos,
         zoom: 17
-    });
+    };
 
-    // 3. 마커 찍기
+    // 지도를 생성합니다.
+    var map = new naver.maps.Map('map', mapOptions);
+
+    // 마커를 찍습니다.
     new naver.maps.Marker({
         position: bogoPos,
         map: map,
         title: '보고 이엔지'
     });
-
-    // 4. 지도 크기 강제 새로고침 (안 보일 때 대비)
-    window.dispatchEvent(new Event('resize'));
-};
+}
 </script>
 </body>
 </html>
