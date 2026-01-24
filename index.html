@@ -111,48 +111,9 @@
                     <h3 class="text-2xl font-bold mb-8 flex items-center">
                         <i class="fa-solid fa-map-location-dot text-blue-600 mr-3"></i>오시는 길
                     </h3>
-                    
-                    <div class="w-full h-80 rounded-2xl overflow-hidden mb-8 border border-gray-200 shadow-lg relative z-10 bg-gray-50">
-                        <div id="naver_map" style="width:100%;height:100%;"></div>
+                    <div class="w-full h-80 bg-gray-100 rounded-2xl overflow-hidden mb-8 border border-gray-200 shadow-inner flex items-center justify-center">
+                        <p class="text-gray-400"><i class="fa-solid fa-map-pin mr-2"></i>지도 영역 (구글/카카오 지도 API 삽입 가능)</p>
                     </div>
-
-                    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk"></script>
-                    
-                    <script>
-                        window.addEventListener('load', function() {
-                            if (typeof naver !== 'undefined') {
-                                var map = new naver.maps.Map('naver_map', {
-                                    center: new naver.maps.LatLng(36.1042, 128.3848),
-                                    zoom: 16
-                                });
-                                var marker = new naver.maps.Marker({
-                                    position: new naver.maps.LatLng(36.1042, 128.3848),
-                                    map: map
-                                });
-                                var infowindow = new naver.maps.InfoWindow({
-                                    content: '<div style="padding:10px;min-width:150px;text-align:center;"><b>보고 이엔지</b><br/>구미시 산호대로 130-9</div>'
-                                });
-                                infowindow.open(map, marker);
-                            }
-                        });
-                    </script>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <span class="font-bold w-20 text-blue-600">주소</span>
-                            <span class="text-gray-600">경상북도 구미시 산호대로 130-9 (공단동)</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="font-bold w-20 text-blue-600">TEL</span>
-                            <span class="text-gray-600">010-3599-4661</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="font-bold w-20 text-blue-600">EMAIL</span>
-                            <span class="text-gray-600">bogopvc@hanmail.net</span>
-                        </div>
-                    </div>
-                </div>
-
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <span class="font-bold w-20 text-blue-600">주소</span>
@@ -218,8 +179,8 @@
                     <div class="bg-white p-4 text-center" data-aos="fade-up"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg">01</div><h4 class="font-bold text-lg mb-2">문의 및 상담</h4><p class="text-xs text-gray-500">도면 검토 및 견적</p></div>
                     <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="100"><div class="w-16 h-16 mx-auto bg-white border-2 border-blue-600 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-4">02</div><h4 class="font-bold text-lg mb-2">자재선정 및 설계</h4><p class="text-xs text-gray-500">최적 소재 선정 및 설계도면 제작</p></div>
                     <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="200"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg">03</div><h4 class="font-bold text-lg mb-2">제품/설비 제작</h4><p class="text-xs text-gray-500">CNC 정밀가공<br>제품 용접 및 설비 맞춤 제작</p></div>
-                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="300"><div class="w-16 h-16 mx-auto bg-white border-2 border-blue-600 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-4">04</div><h4 class="font-bold text-lg mb-2">품질 검수</h4><p class="text-xs text-gray-500">제품 치수 측정<br>외관 검사</p></div>
-                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="400"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg"><i class="fa-solid fa-truck"></i></div><h4 class="font-bold text-lg mb-2">납품 완료</h4><p class="text-xs text-gray-500">안전 포장 및 납품 출하</p></div>
+                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="300"><div class="w-16 h-16 mx-auto bg-white border-2 border-blue-600 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-4">04</div><h4 class="font-bold text-lg mb-2">품질 검수</h4><p class="text-xs text-gray-500">제품 치수 측정<br>설비 테스트 등</p></div>
+                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="400"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg"><i class="fa-solid fa-truck"></i></div><h4 class="font-bold text-lg mb-2">납품</h4><p class="text-xs text-gray-500">안전 포장 및 출하</p></div>
                 </div>
             </div>
         </div>
@@ -231,10 +192,19 @@
             <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">주요 제작 사례</h2>
             <div class="swiper portfolioSwiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><div class="aspect-square bg-gray-200 rounded-xl"></div></div>
-                    <div class="swiper-slide"><div class="aspect-square bg-gray-200 rounded-xl"></div></div>
-                    <div class="swiper-slide"><div class="aspect-square bg-gray-200 rounded-xl"></div></div>
-                    <div class="swiper-slide"><div class="aspect-square bg-gray-200 rounded-xl"></div></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide1.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide1.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"><span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">크게 보기</span></div></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide2.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide3.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide4.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide5.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide6.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide7.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide8.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide9.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide9.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide10.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide10.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide11.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide11.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide12.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide12.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide13.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide13.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
                 </div>
                 <div class="swiper-pagination !-bottom-10"></div>
             </div>
@@ -247,10 +217,11 @@
                 <div data-aos="fade-right">
                     <span class="text-blue-400 font-bold tracking-wide text-sm uppercase mb-4 block">Technology</span>
                     <h2 class="text-4xl font-bold mb-6 leading-tight">오차 없는 정밀함으로<br>고객의 신뢰를 만듭니다.</h2>
-                    <p class="text-gray-400 mb-8">보고 이엔지는 최신 가공 설비와 숙련된 엔지니어의 노하우로 작은 오차도 잡아내는 품질을 보장합니다.</p>
+                    <p class="text-gray-400 mb-8">보고 이엔지는 최신 가공 설비와 숙련된 엔지니어의 노하우로 품질을 보장합니다.</p>
                     <ul class="space-y-4 text-gray-300">
                         <li class="flex items-center space-x-3"><i class="fa-solid fa-circle-check text-blue-500"></i><span>클린룸 환경에 적합한 소재 가공 노하우</span></li>
                         <li class="flex items-center space-x-3"><i class="fa-solid fa-circle-check text-blue-500"></i><span>복잡한 형상의 3D 모델링 및 가공 구현</span></li>
+                        <li class="flex items-center space-x-3"><i class="fa-solid fa-circle-check text-blue-500"></i><span>긴급 발주 대응 가능한 유연한 생산 시스템</span></li>
                     </ul>
                 </div>
                 <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
@@ -267,12 +238,12 @@
         <div class="max-w-7xl mx-auto px-6 w-full flex-grow flex items-center">
             <div class="grid lg:grid-cols-2 gap-16 w-full">
                 <div data-aos="fade-right">
-                    <h2 class="text-4xl font-bold mb-6">우리 보고이엔지는<br>언제나 고객분들을 기다리고 있습니다!.</h2>
+                    <h2 class="text-4xl font-bold mb-6">우리 보고이엔지는<br>언제나 고객분들을 기다리고있습니다!.</h2>
                     <p class="text-gray-500 mb-10 text-lg">아래 이메일을 통해 도면을 보내주시면 가장 빠른 시간 내에 안내해 드립니다.</p>
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4"><div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-phone"></i></div><div><p class="text-sm text-gray-500">전화 문의</p><p class="text-xl font-bold">010-3599-4661</p></div></div>
                         <div class="flex items-start space-x-4"><div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-envelope"></i></div><div><p class="text-sm text-gray-500">이메일 접수</p><p class="text-xl font-bold">bogopvc@hanmail.net</p></div></div>
-                        <div class="flex items-start space-x-4"><div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-location-dot"></i></div><div><p class="text-sm text-gray-500">공장 위치</p><p class="text-lg font-medium">경상북도 구미시 산호대로 130-9 (공단동)</p></div></div>
+                        <div class="flex items-start space-x-4"><div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-location-dot"></i></div><div><p class="text-sm text-gray-500">공장 위치</p><p class="text-lg font-medium">경상북도 구미시 산호대로 130-9(공단동)</p></div></div>
                     </div>
                 </div>
                 <div class="bg-gray-50 p-8 rounded-3xl" data-aos="fade-left">
@@ -304,9 +275,7 @@
         
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn) {
-            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        }
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
