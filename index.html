@@ -295,12 +295,19 @@
             },
         });
 
-        // --- 네이버 지도 실행 스크립트 추가 ---
-        var mapOptions = {
-            center: new naver.maps.LatLng(36.103212, 128.369854), // 주소: 경상북도 구미시 산호대로 130-9
-            zoom: 16
-        };
-        var map = new naver.maps.Map('map', mapOptions);
+// --- 네이버 지도 실행 스크립트 수정 ---
+window.onload = function() {
+    var mapOptions = {
+        center: new naver.maps.LatLng(36.103212, 128.369854),
+        zoom: 16
+    };
+    var map = new naver.maps.Map('map', mapOptions);
+    var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(36.103212, 128.369854),
+        map: map,
+        title: '보고 이엔지'
+    });
+};
         var marker = new naver.maps.Marker({
             position: new naver.maps.LatLng(36.103212, 128.369854),
             map: map,
