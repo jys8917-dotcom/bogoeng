@@ -295,20 +295,29 @@
             },
         });
 
-// --- 네이버 지도 실행 스크립트 수정 ---
-window.onload = function() {
-    // 4번 이미지의 Client ID와 코드 내 ID가 일치하는지 다시 확인 (h43ydstlwk)
+// --- 네이버 지도 실행 스크립트 최종 수정 ---
+function drawMap() {
+    if (typeof naver === 'undefined') return; // 네이버 로드가 안 됐으면 중단
+
+    var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
     var mapOptions = {
-        center: new naver.maps.LatLng(36.103212, 128.369854), // 경북 구미시 산호대로 130-9
-        zoom: 16
+        center: bogoPos,
+        zoom: 17 // 숫자를 높여서 더 잘 보이게 수정
     };
     var map = new naver.maps.Map('map', mapOptions);
     var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(36.103212, 128.369854),
+        position: bogoPos,
         map: map,
         title: '보고 이엔지'
     });
-};
-// 이 아래에 있던 중복 코드는 삭제하세요.    </script>
+}
+
+// 페이지 로딩이 끝나면 바로 실행되도록 조치
+if (document.readyState === 'complete') {
+    drawMap();
+} else {
+    window.addEventListener('load', drawMap);
+}   
+</script>
 </body>
 </html>
