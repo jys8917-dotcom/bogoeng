@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk&callback=initMap"></script>
+<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk"></script>
 
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; }
@@ -110,9 +110,6 @@
                 </div>
 
 <meta name="referrer" content="always">
-
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk&callback=initMap"></script>
-
                 <div data-aos="fade-left">
                     <h3 class="text-2xl font-bold mb-8 flex items-center">
                         <i class="fa-solid fa-map-location-dot text-blue-600 mr-3"></i>오시는 길
@@ -275,49 +272,57 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  
+<script>
+    // AOS
+    AOS.init({ duration: 800, once: true });
 
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            nav.classList.toggle('shadow-md', window.scrollY > 50);
+    // 모바일 메뉴 토글
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // 네비게이션 그림자
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        nav.classList.toggle('shadow-md', window.scrollY > 50);
+    });
+
+    // Swiper
+    new Swiper(".portfolioSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: { delay: 3000 },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 }
+        },
+    });
+
+    // 네이버 지도 초기화
+    function initMap() {
+        var mapElement = document.getElementById('map');
+        if (!mapElement) return;
+
+        var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
+        var mapOptions = {
+            center: bogoPos,
+            zoom: 17
+        };
+
+        var map = new naver.maps.Map(mapElement, mapOptions);
+
+        new naver.maps.Marker({
+            position: bogoPos,
+            map: map,
+            title: '보고 이엔지'
         });
+    }
 
-        new Swiper(".portfolioSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: { delay: 3000 },
-            pagination: { el: ".swiper-pagination", clickable: true },
-            breakpoints: {
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 4 }
-            },
-        });
-
-        // [수정 2] 지도 실행부: 블로그 권장 방식인 initMap 함수로 감싸기
-        function initMap() {
-            var mapElement = document.getElementById('map');
-            if (!mapElement) return;
-
-            var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
-            var mapOptions = {
-                center: bogoPos,
-                zoom: 17
-            };
-
-            var map = new naver.maps.Map('map', mapOptions);
-
-            new naver.maps.Marker({
-                position: bogoPos,
-                map: map,
-                title: '보고 이엔지'
-            });
-        }
-    </script>
+    // DOM이 다 만들어진 뒤에 지도 생성
+    document.addEventListener('DOMContentLoaded', initMap);
+</script>
 </body>
 </html>
