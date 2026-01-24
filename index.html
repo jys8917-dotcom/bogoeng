@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk&callback=initMap"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h43ydstlwk&callback=initMap"></script>
 
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; }
@@ -53,7 +53,7 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 absolute w-full">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="#about" class="text-gray-600 font-medium">About Us</a>
                 <a href="#services" class="text-gray-600 font-medium">Services</a>
@@ -295,27 +295,25 @@
             },
         });
 
-// window.onload 대신 블로그 권장 방식인 initMap 함수를 만듭니다.
-function initMap() {
-    var mapElement = document.getElementById('map');
-    if (!mapElement) return;
+        // [수정 2] 지도 실행부: 블로그 권장 방식인 initMap 함수로 감싸기
+        function initMap() {
+            var mapElement = document.getElementById('map');
+            if (!mapElement) return;
 
-    var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
-    var mapOptions = {
-        center: bogoPos,
-        zoom: 17
-    };
+            var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
+            var mapOptions = {
+                center: bogoPos,
+                zoom: 17
+            };
 
-    // 지도를 생성합니다.
-    var map = new naver.maps.Map('map', mapOptions);
+            var map = new naver.maps.Map('map', mapOptions);
 
-    // 마커를 찍습니다.
-    new naver.maps.Marker({
-        position: bogoPos,
-        map: map,
-        title: '보고 이엔지'
-    });
-}
-</script>
+            new naver.maps.Marker({
+                position: bogoPos,
+                map: map,
+                title: '보고 이엔지'
+            });
+        }
+    </script>
 </body>
 </html>
