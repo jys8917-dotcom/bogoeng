@@ -297,8 +297,9 @@
 
 // --- 네이버 지도 실행 스크립트 수정 ---
 window.onload = function() {
+    // 4번 이미지의 Client ID와 코드 내 ID가 일치하는지 다시 확인 (h43ydstlwk)
     var mapOptions = {
-        center: new naver.maps.LatLng(36.103212, 128.369854),
+        center: new naver.maps.LatLng(36.103212, 128.369854), // 경북 구미시 산호대로 130-9
         zoom: 16
     };
     var map = new naver.maps.Map('map', mapOptions);
@@ -308,11 +309,6 @@ window.onload = function() {
         title: '보고 이엔지'
     });
 };
-        var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(36.103212, 128.369854),
-            map: map,
-            title: '보고 이엔지'
-        });
-    </script>
+// 이 아래에 있던 중복 코드는 삭제하세요.    </script>
 </body>
 </html>
