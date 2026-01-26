@@ -300,17 +300,17 @@
         },
     });
 
- // 네이버 지도 초기화
+// 네이버 지도 초기화
     function initMap() {
         var mapElement = document.getElementById('map');
         if (!mapElement) return;
 
-        // 이미지에 표시하신 130-9 건물 중앙 지점으로 좌표를 정밀 조정했습니다.
-        var bogoPos = new naver.maps.LatLng(36.103750, 128.370250);
+        // 주황색으로 표시하신 130-9번지 건물 북측 지점의 정밀 좌표입니다.
+        var bogoPos = new naver.maps.LatLng(36.103980, 128.370310);
         
         var mapOptions = {
             center: bogoPos,
-            zoom: 18 // 건물을 더 자세히 볼 수 있도록 줌 레벨을 1단계 올렸습니다.
+            zoom: 18 // 건물 위치를 더 명확하게 볼 수 있는 줌 레벨입니다.
         };
 
         var map = new naver.maps.Map(mapElement, mapOptions);
