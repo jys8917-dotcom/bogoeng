@@ -321,21 +321,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
   
 <script>
-    // AOS
+    // AOS 및 기타 설정은 그대로 유지
     AOS.init({ duration: 800, once: true });
 
-    // 모바일 메뉴 토글
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // 네비게이션 그림자
     window.addEventListener('scroll', () => {
         const nav = document.getElementById('navbar');
         nav.classList.toggle('shadow-md', window.scrollY > 50);
     });
 
-    // Swiper
     new Swiper(".portfolioSwiper", {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -348,17 +345,18 @@
         },
     });
 
-// 네이버 지도 초기화
+    // [최종 검토] 네이버 지도 초기화 - 주황색 원 위치 정밀 좌표
     function initMap() {
         var mapElement = document.getElementById('map');
         if (!mapElement) return;
 
-        // 주황색으로 표시하신 130-9번지 건물 북측 지점의 정밀 좌표입니다.
-        var bogoPos = new naver.maps.LatLng(36.103980, 128.370310);
+        // 이미지 속 테크너시스템(130-9) 건물 정중앙에 찍히는 좌표입니다.
+        var bogoPos = new naver.maps.LatLng(36.103755, 128.370355);
         
         var mapOptions = {
             center: bogoPos,
-            zoom: 18 // 건물 위치를 더 명확하게 볼 수 있는 줌 레벨입니다.
+            zoom: 18,
+            mapTypeControl: true
         };
 
         var map = new naver.maps.Map(mapElement, mapOptions);
@@ -369,6 +367,10 @@
             title: '보고 이엔지'
         });
     }
+
+    // 중복 실행 방지를 위해 한 번만 호출
+    document.addEventListener('DOMContentLoaded', initMap);
+</script>
 
     // DOM이 다 만들어진 뒤에 지도 생성
     document.addEventListener('DOMContentLoaded', initMap);
