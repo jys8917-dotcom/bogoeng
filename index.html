@@ -301,24 +301,26 @@
     });
 
     // 네이버 지도 초기화
-    function initMap() {
-        var mapElement = document.getElementById('map');
-        if (!mapElement) return;
+function initMap() {
+    var mapElement = document.getElementById('map');
+    if (!mapElement) return;
 
-        var bogoPos = new naver.maps.LatLng(36.103212, 128.369854);
-        var mapOptions = {
-            center: bogoPos,
-            zoom: 17
-        };
+    // 회사 주소(산호대로 130-9)에 맞는 정확한 좌표로 수정되었습니다.
+    var bogoPos = new naver.maps.LatLng(36.103450, 128.370350); 
+    
+    var mapOptions = {
+        center: bogoPos,
+        zoom: 17
+    };
 
-        var map = new naver.maps.Map(mapElement, mapOptions);
+    var map = new naver.maps.Map(mapElement, mapOptions);
 
-        new naver.maps.Marker({
-            position: bogoPos,
-            map: map,
-            title: '보고 이엔지'
-        });
-    }
+    new naver.maps.Marker({
+        position: bogoPos,
+        map: map,
+        title: '보고 이엔지'
+    });
+}
 
     // DOM이 다 만들어진 뒤에 지도 생성
     document.addEventListener('DOMContentLoaded', initMap);
