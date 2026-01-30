@@ -367,5 +367,50 @@
     // DOM이 다 만들어진 뒤에 지도 생성
     document.addEventListener('DOMContentLoaded', initMap);
 </script>
+
+<script src="https://forminit.com/sdk/v1/forminit.js"></script>
+<script>
+    const forminit = new Forminit();
+    const FORM_ID = 'mtqlbgegd3c'; // 사장님의 폼 ID
+    
+    const contactForm = document.getElementById('contact-form');
+    const resultMsg = document.getElementById('form-result');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    contactForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        // 버튼 비활성화 (여러 번 클릭 방지)
+        submitBtn.disabled = true;
+        submitBtn.innerText = '전송 중...';
+        resultMsg.innerText = '';
+
+        const formData = new FormData(contactForm);
+        
+        // 파일이 포함되어 있으므로 FormData 방식을 사용합니다.
+        const { data, error } = await forminit.submit(FORM_ID, formData);
+        
+        if (error) {
+            resultMsg.style.color = '#ef4444'; // 빨간색 (에러)
+            resultMsg.innerText = '오류 발생: ' + error.message;
+            submitBtn.disabled = false;
+            submitBtn.innerText = '다시 시도하기';
+            return;
+        }
+        
+        // 전송 성공 시
+        resultMsg.style.color = '#059669'; // 초록색 (성공)
+        resultMsg.innerText = '성공적으로 전송되었습니다! 확인 후 연락드리겠습니다.';
+        contactForm.reset();
+        submitBtn.innerText = '전송 완료';
+        
+        // 3초 뒤 버튼 복구
+        setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = '견적 및 도면 요청하기';
+        }, 3000);
+    });
+</script>
+
 </body>
 </html>
