@@ -9,26 +9,22 @@
     <title>보고 이엔지 | 반도체 수지 가공 및 설비 제작 전문</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=t6khnykomg"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=t6khnykomg"></script>
 
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; }
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                         url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
+        .swiper-pagination-bullet-active { background: #2563eb !important; }
     </style>
 </head>
 <body class="bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
@@ -36,391 +32,210 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center group">
-    <div class="flex items-center">
-        <img src="logo2.png" alt="BOGO ENG" 
-             class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-             style="mix-blend-mode: multiply; filter: contrast(1.2) brightness(1.2) saturate(1.1);">
-        <span class="ml-2 text-2xl md:text-3xl font-black tracking-tighter text-blue-900">BOGO ENG</span>
-    </div>
-</a>
+                <div class="flex items-center">
+                    <img src="logo2.png" alt="BOGO ENG" class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105" style="mix-blend-mode: multiply; filter: contrast(1.2) brightness(1.2) saturate(1.1);">
+                    <span class="ml-2 text-2xl md:text-3xl font-black tracking-tighter text-blue-900">BOGO ENG</span>
+                </div>
+            </a>
             <div class="hidden md:flex space-x-8 text-base font-medium text-gray-600">
                 <a href="#about" class="hover:text-blue-600 transition">About Us</a>
+                <a href="#process" class="hover:text-blue-600 transition">Expertise</a>
                 <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                <a href="#process" class="hover:text-blue-600 transition">Process</a>
                 <a href="#portfolio" class="hover:text-blue-600 transition">Portfolio</a>
-                <a href="#tech" class="hover:text-blue-600 transition">Technology</a>
                 <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
-   
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none"><i class="fa-solid fa-bars"></i></button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="#about" class="text-gray-600 font-medium">About Us</a>
-                <a href="#services" class="text-gray-600 font-medium">Services</a>
-                <a href="#process" class="text-gray-600 font-medium">Process</a>
-                <a href="#portfolio" class="text-gray-600 font-medium">Portfolio</a>
-                <a href="#tech" class="text-gray-600 font-medium">Technology</a>
-                <a href="#contact" class="text-blue-600 font-bold">견적 문의하기</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-6 shadow-xl">
+            <div class="flex flex-col space-y-4 font-medium text-gray-600">
+                <a href="#about">About Us</a><a href="#process">Expertise</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#contact" class="text-blue-600 font-bold">견적 문의</a>
             </div>
         </div>
     </nav>
 
     <section class="relative h-screen flex items-center px-6 overflow-hidden">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-        <source src="main-bg.mp4" type="video/mp4">
-        브라우저가 비디오 태그를 지원하지 않습니다.
-    </video>
-    
-    <div class="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-10"></div>
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0"><source src="main-bg.mp4" type="video/mp4"></video>
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-10"></div>
+        <div class="max-w-7xl mx-auto w-full pt-20 relative z-20" data-aos="fade-up" data-aos-duration="1000">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-600/20 border border-blue-400/30 text-blue-100 text-sm font-semibold mb-6 backdrop-blur-sm">Since 1999 BOGO Engineering</span>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">반도체 설비의 완성도<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">합성수지 정밀가공<br>반도체 설비 제작</span>의 기준</h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light">PVC, PP, 아크릴 등 특수 합성수지 정밀가공부터 용접과 설비 제작까지.<br>보고 이엔지는 극한의 공정 환경을 견디는 고품질 부품과 설비를 제작합니다.</p>
+        </div>
+    </section>
 
-    <div class="max-w-7xl mx-auto w-full pt-20 relative z-20" data-aos="fade-up" data-aos-duration="1000">
-        <span class="inline-block py-1 px-3 rounded-full bg-blue-600/20 border border-blue-400/30 text-blue-100 text-sm font-semibold mb-6 backdrop-blur-sm">
-            Since 1999 BOGO Engineering
-        </span>
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            반도체 설비의 완성도<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">합성수지 정밀가공<br>반도체 설비 제작</span>의 기준
-        </h1>
-        <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light">
-            PVC, PP, 아크릴 등 특수 합성수지 정밀가공부터 용접과 설비 제작까지.<br>
-            보고 이엔지는 극한의 공정 환경을 견디는 고품질 부품과 설비를 제작합니다.
-        </p>
-    </div>
-</section>
-
-    <section id="about" class="min-h-screen flex flex-col justify-center py-24 px-6 bg-white">
+    <section id="about" class="min-h-screen flex flex-col justify-center py-20 px-6 bg-white">
         <div class="max-w-7xl mx-auto w-full">
-            <div class="grid lg:grid-cols-2 gap-20 items-start">
+            <div class="mb-12 md:mb-16" data-aos="fade-up">
+                <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">About Us</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2">수십 년 축적된 노하우로 이루어진<br>보고 이엔지입니다.</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div data-aos="fade-right">
-                    <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">About Us</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-12">수십년 축적된 노하우로 이루어진<br>보고 이엔지입니다.</h2>
-                    
-                    <div class="relative border-l-2 border-blue-100 ml-3 space-y-10">
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-blue-600 mb-1">1999</h4>
-                            <p class="text-gray-700 font-semibold">보고 테크노스 설립</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-blue-400 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-blue-500 mb-1">2000</h4>
-                            <p class="text-gray-700 font-semibold">구미지점 개설</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-blue-300 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-blue-400 mb-1">2001</h4>
-                            <p class="text-gray-700 font-semibold">본사/공장 구미 이전 확장</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-blue-200 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-blue-400 mb-1">2005</h4>
-                            <p class="text-gray-700 font-semibold">ISO 9001 : 2000 인증 및 법인등록</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-blue-100 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-blue-300 mb-1">2006</h4>
-                            <p class="text-gray-700 font-semibold">LG Philips LCD A/S 계약</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-blue-600 mb-1">2017</h4>
-                            <p class="text-gray-700 font-semibold">보고 테크노스 매각 / 보고 이엔지 설립</p>
-                        </div>
-                        <div class="relative pl-8">
-                            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-green-500 rounded-full border-4 border-white"></div>
-                            <h4 class="text-xl font-bold text-green-600 mb-1">2017 ~ 현재</h4>
-                            <p class="text-gray-700 font-semibold">SK 실트론 / 한화솔루션 / LG 이노텍 1차 업체 협업 중</p>
-                        </div>
+                    <div class="relative border-l-2 border-blue-100 ml-3 space-y-6">
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-600 rounded-full border-4 border-white"></div><h4 class="text-lg font-bold text-blue-600 leading-none mb-1">1999</h4><p class="text-gray-700 font-medium">보고 테크노스 설립</p></div>
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-400 rounded-full border-4 border-white"></div><h4 class="text-lg font-bold text-blue-500 leading-none mb-1">2000</h4><p class="text-gray-700 font-medium">구미지점 개설</p></div>
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-300 rounded-full border-4 border-white"></div><h4 class="text-lg font-bold text-blue-400 leading-none mb-1">2001</h4><p class="text-gray-700 font-medium">본사/공장 구미 이전 확장</p></div>
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-200 rounded-full border-4 border-white"></div><h4 class="text-lg font-bold text-blue-400 leading-none mb-1">2005</h4><p class="text-gray-700 font-medium">ISO 9001 : 2000 인증 및 법인등록</p></div>
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-100 rounded-full border-4 border-white"></div><h4 class="text-lg font-bold text-blue-300 leading-none mb-1">2006</h4><p class="text-gray-700 font-medium">LG Philips LCD A/S 계약</p></div>
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-blue-600 rounded-full border-4 border-white"></div><h4 class="text-lg font-bold text-blue-600 leading-none mb-1">2017</h4><p class="text-gray-700 font-medium">보고 테크노스 매각 / 보고 이엔지 설립</p></div>
+                        <div class="relative pl-8"><div class="absolute -left-[11px] top-1 w-5 h-5 bg-green-500 rounded-full border-4 border-white shadow-[0_0_10px_rgba(34,197,94,0.3)]"></div><h4 class="text-lg font-bold text-green-600 leading-none mb-1">2017 ~ 현재</h4><p class="text-gray-700 font-bold">SK 실트론 / 한화솔루션 / LG 이노텍 1차 업체 협업 중</p></div>
                     </div>
                 </div>
-
-                <div data-aos="fade-left">
-                    <h3 class="text-2xl font-bold mb-8 flex items-center">
-                        <i class="fa-solid fa-map-location-dot text-blue-600 mr-3"></i>오시는 길
-                    </h3>
-                    <div id="map" class="w-full h-80 rounded-2xl overflow-hidden mb-8 border border-gray-200 shadow-inner"></div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <span class="font-bold w-20 text-blue-600">주소</span>
-                            <span class="text-gray-600">경상북도 구미시 산호대로 130-9 (공단동)</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="font-bold w-20 text-blue-600">TEL</span>
-                            <span class="text-gray-600">010-3599-4661</span>
-                        </div>
-                        <div class="flex items-start">
-                            <span class="font-bold w-20 text-blue-600">EMAIL</span>
-                            <span class="text-gray-600">bogopvc@hanmail.net</span>
-                        </div>
+                <div data-aos="fade-left" class="flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center"><i class="fa-solid fa-map-location-dot text-blue-600 mr-3"></i>오시는 길</h3>
+                    <div id="map" class="w-full h-80 rounded-3xl overflow-hidden mb-6 border border-gray-200 shadow-sm transition-hover hover:shadow-md"></div>
+                    <div class="bg-gray-50 p-7 rounded-3xl border border-gray-100 flex items-center space-x-4">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-200"><i class="fa-solid fa-location-dot"></i></div>
+                        <div><span class="block text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">Factory Address</span><span class="text-gray-800 text-lg font-medium leading-tight">경상북도 구미시 산호대로 130-9 (공단동)</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="min-h-screen flex items-center py-24 px-6 bg-gray-50">
+    <section id="process" class="min-h-screen flex items-center py-24 px-6 bg-[#1e293b] text-white overflow-hidden border-t border-slate-700">
         <div class="max-w-7xl mx-auto w-full">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">Our Services</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-2">다양한 반도체 공정에 필요한<br>합성수지 가공 및 설비 제작 솔루션</h2>
+            <div class="mb-16" data-aos="fade-up"> <span class="text-blue-400 font-bold tracking-wide text-sm uppercase">Our Expertise</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4 leading-tight text-white">신뢰를 만드는 정밀 기술과<br>체계적인 공정 시스템</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                <div class="space-y-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold flex items-center mb-6"><span class="w-8 h-1 bg-blue-500 mr-4"></span>제작 프로세스</h3>
+                    <div class="relative space-y-6 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-600 via-blue-400 before:to-transparent">
+                        <div class="relative flex items-center group cursor-default"><div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-400 bg-slate-800 text-blue-300 text-sm font-bold z-10 shrink-0 shadow-[0_0_20px_rgba(96,165,250,0.3)] group-hover:bg-blue-500 group-hover:text-white transition-all">01</div><div class="ml-6 w-full bg-slate-800/50 p-5 rounded-xl border border-slate-700 group-hover:border-blue-400 transition-all"><h4 class="font-bold text-blue-300">문의 및 도면 검토</h4><p class="text-sm text-slate-400">요구사항 분석 및 정밀 견적 산출</p></div></div>
+                        <div class="relative flex items-center group cursor-default"><div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-400 bg-slate-800 text-blue-300 text-sm font-bold z-10 shrink-0 shadow-[0_0_20px_rgba(96,165,250,0.3)] group-hover:bg-blue-500 group-hover:text-white transition-all">02</div><div class="ml-6 w-full bg-slate-800/50 p-5 rounded-xl border border-slate-700 group-hover:border-blue-400 transition-all"><h4 class="font-bold text-blue-300">자재 선정 및 설계</h4><p class="text-sm text-slate-400">공정에 최적화된 합성수지 소재 선정</p></div></div>
+                        <div class="relative flex items-center group cursor-default"><div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-400 bg-slate-800 text-blue-300 text-sm font-bold z-10 shrink-0 shadow-[0_0_20px_rgba(96,165,250,0.3)] group-hover:bg-blue-500 group-hover:text-white transition-all">03</div><div class="ml-6 w-full bg-slate-800/50 p-5 rounded-xl border border-slate-700 group-hover:border-blue-400 transition-all"><h4 class="font-bold text-blue-300">CNC 정밀 가공 및 제작</h4><p class="text-sm text-slate-400">최신 설비를 이용한 오차 없는 정밀 제작</p></div></div>
+                        <div class="relative flex items-center group cursor-default"><div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-400 bg-slate-800 text-blue-300 text-sm font-bold z-10 shrink-0 shadow-[0_0_20px_rgba(96,165,250,0.3)] group-hover:bg-blue-500 group-hover:text-white transition-all">04</div><div class="ml-6 w-full bg-slate-800/50 p-5 rounded-xl border border-slate-700 group-hover:border-blue-400 transition-all"><h4 class="font-bold text-blue-300">엄격한 품질 검수</h4><p class="text-sm text-slate-400">치수 측정 및 테스트 후 최종 출하</p></div></div>
+                    </div>
+                </div>
+                <div class="lg:pl-10" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold flex items-center mb-10"><span class="w-8 h-1 bg-blue-500 mr-4"></span>차별화된 기술력</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all group"><i class="fa-solid fa-microchip text-4xl text-blue-400 mb-5 group-hover:scale-110 transition-transform"></i><h4 class="font-bold text-lg mb-2">반도체 특화</h4><p class="text-sm text-slate-400">클린룸 환경 가공 최적화</p></div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all group"><i class="fa-solid fa-cube text-4xl text-blue-400 mb-5 group-hover:scale-110 transition-transform"></i><h4 class="font-bold text-lg mb-2">3D 정밀 설계</h4><p class="text-sm text-slate-400">완벽한 모델링 구현</p></div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all group"><i class="fa-solid fa-bolt text-4xl text-blue-400 mb-5 group-hover:scale-110 transition-transform"></i><h4 class="font-bold text-lg mb-2">신속 대응</h4><p class="text-sm text-slate-400">긴급 발주 및 납기 준수</p></div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all group"><i class="fa-solid fa-user-gear text-4xl text-blue-400 mb-5 group-hover:scale-110 transition-transform"></i><h4 class="font-bold text-lg mb-2">기술 자문</h4><p class="text-sm text-slate-400">소재 선정 전문가 상담</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="min-h-screen flex items-center py-24 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="mb-16" data-aos="fade-up"> <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">Our Services</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 text-blue-900">다양한 반도체 공정에 필요한<br>합성수지 가공 및 설비 제작 솔루션</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border border-gray-100 group" data-aos="fade-up">
-                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition"><i class="fa-solid fa-layer-group text-2xl text-blue-600 group-hover:text-white"></i></div>
-                    <h3 class="text-xl font-bold mb-3">합성수지 가공 및 용접</h3>
-                    <p class="text-gray-500 text-sm">공정에 적합한 합성수지 소재를 선택, CNC 정밀가공 및 용접하여 반도체 설비 관련부품을 제작합니다.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><i class="fa-solid fa-layer-group text-2xl text-blue-600 group-hover:text-white transition-colors"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">합성수지 가공 및 용접</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">공정에 적합한 합성수지 소재를 선택, CNC 정밀가공 및 용접하여 반도체 설비 관련부품을 제작합니다.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border border-gray-100 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition"><i class="fa-solid fa-flask text-2xl text-blue-600 group-hover:text-white"></i></div>
-                    <h3 class="text-xl font-bold mb-3">각종 케미컬 탱크</h3>
-                    <p class="text-gray-500 text-sm">강산, 강알칼리에 강한 수지 소재로 맞춤형 스토리지 및 믹싱 탱크 등을 설계 제작합니다.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><i class="fa-solid fa-flask text-2xl text-blue-600 group-hover:text-white transition-colors"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">각종 케미컬 탱크</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">강산, 강알칼리에 강한 수지 소재로 맞춤형 스토리지 및 믹싱 탱크 등을 설계 제작합니다.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border border-gray-100 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition"><i class="fa-solid fa-box-open text-2xl text-blue-600 group-hover:text-white"></i></div>
-                    <h3 class="text-xl font-bold mb-3">아크릴 챔버 제작</h3>
-                    <p class="text-gray-500 text-sm">투명도가 높고 견고한 PC, 아크릴을 활용하여 내부 관측용 챔버 등을 제작합니다.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><i class="fa-solid fa-box-open text-2xl text-blue-600 group-hover:text-white transition-colors"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">아크릴 챔버 제작</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">투명도가 높고 견고한 PC, 아크릴을 활용하여 내부 관측용 챔버 등을 제작합니다.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border border-gray-100 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition"><i class="fa-solid fa-microchip text-2xl text-blue-600 group-hover:text-white"></i></div>
-                    <h3 class="text-xl font-bold mb-3">CNC 정밀 부품</h3>
-                    <p class="text-gray-500 text-sm">고성능 CNC, 재단기 등 설비를 이용하여 각종 합성수지 플라스틱을 치수에 맞게 정밀 가공합니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="min-h-screen flex items-center py-24 px-6 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full">
-            <div class="mb-16 md:flex justify-between items-end">
-                <div data-aos="fade-right">
-                    <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">Workflow</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-2">체계적인 제작 프로세스</h2>
-                </div>
-                <p class="text-gray-500 mt-4 md:mt-0 max-w-md text-sm md:text-right" data-aos="fade-left">상담부터 납품까지 완벽한 원스톱 시스템을 운영합니다.</p>
-            </div>
-            <div class="relative">
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 z-0"></div>
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
-                    <div class="bg-white p-4 text-center" data-aos="fade-up"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg">01</div><h4 class="font-bold text-lg mb-2">문의 및 상담</h4><p class="text-xs text-gray-500">도면 검토 및 견적</p></div>
-                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="100"><div class="w-16 h-16 mx-auto bg-white border-2 border-blue-600 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-4">02</div><h4 class="font-bold text-lg mb-2">자재선정 및 설계</h4><p class="text-xs text-gray-500">최적 소재 선정 및 설계도면 제작</p></div>
-                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="200"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg">03</div><h4 class="font-bold text-lg mb-2">제품/설비 제작</h4><p class="text-xs text-gray-500">CNC 정밀가공<br>제품 용접 및 설비 맞춤 제작</p></div>
-                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="300"><div class="w-16 h-16 mx-auto bg-white border-2 border-blue-600 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-4">04</div><h4 class="font-bold text-lg mb-2">품질 검수</h4><p class="text-xs text-gray-500">제품 치수 측정<br>설비 테스트 등</p></div>
-                    <div class="bg-white p-4 text-center" data-aos="fade-up" data-aos-delay="400"><div class="w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4 shadow-lg"><i class="fa-solid fa-truck"></i></div><h4 class="font-bold text-lg mb-2">납품</h4><p class="text-xs text-gray-500">안전 포장 및 출하</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors"><i class="fa-solid fa-microchip text-2xl text-blue-600 group-hover:text-white transition-colors"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">CNC 정밀 부품</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">고성능 CNC, 재단기 등 설비를 이용하여 각종 합성수지 플라스틱을 치수에 맞게 정밀 가공합니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <section id="portfolio" class="min-h-screen flex items-center py-24 px-6 bg-gray-50 overflow-hidden">
+    <section id="portfolio" class="min-h-screen flex items-center py-24 px-6 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto w-full">
-            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">주요 제작 사례</h2>
+            <div class="mb-16" data-aos="fade-up"> <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">Our Portfolio</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2">주요 제작 사례</h2>
+            </div>
             <div class="swiper portfolioSwiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide1.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide1.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"><span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">크게 보기</span></div></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide2.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide3.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide4.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide5.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide6.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide7.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide8.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide9.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide9.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide10.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide10.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide11.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide11.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide12.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide12.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
-                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide13.jpg" class="block aspect-square bg-gray-200 rounded-xl overflow-hidden group relative"><img src="slide13.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide1.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide1.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="text-white font-bold border border-white px-4 py-2 rounded-full text-sm">크게 보기</span></div></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide2.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide2.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide3.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide3.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide4.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide4.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide5.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide5.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide6.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide6.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide7.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide7.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide8.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide8.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide9.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide9.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide10.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide10.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide11.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide11.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide12.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide12.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
+                    <div class="swiper-slide"><a data-fslightbox="gallery" href="slide13.jpg" class="block aspect-square bg-gray-100 rounded-xl overflow-hidden group relative"><img src="slide13.jpg" class="w-full h-full object-cover group-hover:scale-110 transition"></a></div>
                 </div>
                 <div class="swiper-pagination !-bottom-10"></div>
             </div>
         </div>
     </section>
 
-    <section id="tech" class="min-h-screen flex items-center py-24 px-6 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto w-full">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section id="contact" class="min-h-screen flex flex-col justify-between bg-gray-50 pt-24 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 w-full flex-grow flex items-center">
+            <div class="grid lg:grid-cols-2 gap-16 w-full">
                 <div data-aos="fade-right">
-                    <span class="text-blue-400 font-bold tracking-wide text-sm uppercase mb-4 block">Technology</span>
-                    <h2 class="text-4xl font-bold mb-6 leading-tight">오차 없는 정밀함으로<br>고객의 신뢰를 만듭니다.</h2>
-                    <p class="text-gray-400 mb-8">보고 이엔지는 최신 가공 설비와 숙련된 엔지니어의 노하우로 품질을 보장합니다.</p>
-                    <ul class="space-y-4 text-gray-300">
-                        <li class="flex items-center space-x-3"><i class="fa-solid fa-circle-check text-blue-500"></i><span>클린룸 환경에 적합한 소재 가공 노하우</span></li>
-                        <li class="flex items-center space-x-3"><i class="fa-solid fa-circle-check text-blue-500"></i><span>복잡한 형상의 3D 모델링 및 가공 구현</span></li>
-                        <li class="flex items-center space-x-3"><i class="fa-solid fa-circle-check text-blue-500"></i><span>긴급 발주 대응 가능한 유연한 생산 시스템</span></li>
-                    </ul>
+                    <span class="text-blue-600 font-bold tracking-wide text-sm uppercase">Contact Us</span>
+                    <h2 class="text-4xl font-bold mt-2 text-blue-900 leading-tight">보고 이엔지는 언제나<br>고객분들을 기다리고 있습니다!</h2>
+                    <p class="text-gray-500 my-8 text-lg leading-relaxed">우측 폼을 통해 문의 내용과 <span class="text-blue-600 font-bold underline">도면(CAD/PDF)</span>을 보내주시면 확인 후 신속히 연락드리겠습니다.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4"><div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-phone"></i></div><div><p class="text-sm text-gray-500 font-bold">대표 번호</p><p class="text-xl font-bold">054-465-0197</p></div></div>
+                        <div class="flex items-start space-x-4"><div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-envelope"></i></div><div><p class="text-sm text-gray-500 font-bold">대표 이메일</p><p class="text-xl font-bold">bogopvc@hanmail.net</p></div></div>
+                    </div>
                 </div>
-                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
-                    <div class="bg-gray-800 p-6 rounded-2xl text-center"><i class="fa-solid fa-ruler-combined text-3xl text-blue-400 mb-4"></i><h4 class="font-bold">고정밀도</h4></div>
-                    <div class="bg-gray-800 p-6 rounded-2xl text-center"><i class="fa-solid fa-shield text-3xl text-blue-400 mb-4"></i><h4 class="font-bold">내구성</h4></div>
-                    <div class="bg-gray-800 p-6 rounded-2xl text-center"><i class="fa-solid fa-clock text-3xl text-blue-400 mb-4"></i><h4 class="font-bold">납기 준수</h4></div>
-                    <div class="bg-gray-800 p-6 rounded-2xl text-center"><i class="fa-solid fa-headset text-3xl text-blue-400 mb-4"></i><h4 class="font-bold">기술 지원</h4></div>
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-200" data-aos="fade-left">
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" name="fi-sender-fullName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="담당자명/업체명 *">
+                            <input type="tel" name="fi-sender-phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="연락처 *">
+                        </div>
+                        <input type="email" name="fi-sender-email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="이메일 주소 *">
+                        <textarea name="fi-text-message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 transition resize-none" placeholder="문의 내용"></textarea>
+                        <div class="bg-gray-50 p-4 rounded-xl border-2 border-dashed border-gray-200 hover:border-blue-400 group transition-colors">
+                            <label class="block text-sm font-bold text-gray-600 mb-2 group-hover:text-blue-600"><i class="fa-solid fa-file-pdf mr-1"></i> 도면 첨부 (CAD, PDF 등)</label>
+                            <input type="file" name="fi-file-drawing" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-blue-50 file:text-blue-700">
+                        </div>
+                        <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg active:scale-95">견적 및 도면 요청하기</button>
+                        <p id="form-result" class="text-center text-sm font-bold"></p>
+                    </form>
                 </div>
             </div>
         </div>
-   
- </section>
-<section id="contact" class="min-h-screen flex flex-col justify-between bg-white pt-24 border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 w-full flex-grow flex items-center">
-        <div class="grid lg:grid-cols-2 gap-16 w-full">
-            <div data-aos="fade-right">
-                <h2 class="text-4xl font-bold mb-6 text-blue-900">보고 이엔지는<br>언제나 기다리고<br> 있습니다!</h2>
-                <p class="text-gray-500 mb-10 text-lg leading-relaxed">
-                    우측 폼을 통해 문의 내용과 <span class="text-blue-600 font-bold underline">도면(CAD/PDF)</span>을 보내주시면<br>
-                    확인 후 가장 빠른 시간 내에 견적 안내를 도와드리겠습니다.
-                </p>
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-phone"></i></div>
-                        <div><p class="text-sm text-gray-500">대표 번호</p><p class="text-xl font-bold">054-465-0197</p></div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i class="fa-solid fa-envelope"></i></div>
-                        <div><p class="text-sm text-gray-500">이메일</p><p class="text-xl font-bold">bogopvc@hanmail.net</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100" data-aos="fade-left">
-                <form id="contact-form" class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="text" name="fi-sender-fullName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 outline-none" placeholder="담당자명/업체명 *">
-                        <input type="tel" name="fi-sender-phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 outline-none" placeholder="연락처 *">
-                    </div>
-                    <input type="email" name="fi-sender-email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 outline-none" placeholder="이메일 주소 *">
-                    <textarea name="fi-text-message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 outline-none resize-none" placeholder="문의 내용 (소재, 수량, 규격 등)"></textarea>
-                    
-                    <div class="bg-white p-4 rounded-xl border-2 border-dashed border-gray-200 hover:border-blue-400 transition group">
-                        <label class="block text-sm font-bold text-gray-600 mb-2 group-hover:text-blue-600 transition">
-                            <i class="fa-solid fa-file-pdf mr-1"></i> 도면 및 참고 파일 첨부 (CAD, PDF 등)
-                        </label>
-                        <input type="file" name="fi-file-drawing" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
-                    </div>
-
-                    <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                        견적 및 도면 요청하기
-                    </button>
-                    <p id="form-result" class="text-center text-sm font-bold"></p>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+        <footer class="py-10 border-t border-gray-200 bg-white"><div class="max-w-7xl mx-auto px-6 text-center text-gray-400 text-sm">© 2024 BOGO ENG. All rights reserved.</div></footer>
+    </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
-  
-<script>
-    // AOS
-    AOS.init({ duration: 800, once: true });
-
-    // 모바일 메뉴 토글
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-    // 네비게이션 그림자
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        nav.classList.toggle('shadow-md', window.scrollY > 50);
-    });
-
-    // Swiper
-    new Swiper(".portfolioSwiper", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: { delay: 3000 },
-        pagination: { el: ".swiper-pagination", clickable: true },
-        breakpoints: {
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 }
-        },
-    });
-
-// 네이버 지도 초기화
-    function initMap() {
-        var mapElement = document.getElementById('map');
-        if (!mapElement) return;
-
-        // 주황색으로 표시하신 130-9번지 건물 북측 지점의 정밀 좌표입니다.
-        var bogoPos = new naver.maps.LatLng(36.095147, 128.386190);
-        
-        var mapOptions = {
-            center: bogoPos,
-            zoom: 18 // 건물 위치를 더 명확하게 볼 수 있는 줌 레벨입니다.
-        };
-
-        var map = new naver.maps.Map(mapElement, mapOptions);
-
-        new naver.maps.Marker({
-            position: bogoPos,
-            map: map,
-            title: '보고 이엔지'
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 50); });
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+        new Swiper(".portfolioSwiper", { slidesPerView: 1, spaceBetween: 20, loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination", clickable: true }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } } });
+        function initMap() { var bogoPos = new naver.maps.LatLng(36.095147, 128.386190); var map = new naver.maps.Map('map', { center: bogoPos, zoom: 18 }); new naver.maps.Marker({ position: bogoPos, map: map, title: '보고 이엔지' }); }
+        document.addEventListener('DOMContentLoaded', initMap);
+        const forminit = new Forminit();
+        const FORM_ID = 'mtqlbgegd3c';
+        const contactForm = document.getElementById('contact-form');
+        const resultMsg = document.getElementById('form-result');
+        const submitBtn = document.getElementById('submit-btn');
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true; submitBtn.innerText = '전송 중...';
+            const formData = new FormData(contactForm);
+            let phone = formData.get('fi-sender-phone');
+            if (phone) { phone = phone.replace(/[^0-9]/g, ''); if (phone.startsWith('0')) { phone = '+82' + phone.substring(1); } formData.set('fi-sender-phone', phone); }
+            const { data, error } = await forminit.submit(FORM_ID, formData);
+            if (error) { resultMsg.style.color = '#ef4444'; resultMsg.innerText = '오류: ' + error.message; submitBtn.disabled = false; submitBtn.innerText = '다시 시도'; }
+            else { resultMsg.style.color = '#059669'; resultMsg.innerText = '성공적으로 전송되었습니다!'; contactForm.reset(); submitBtn.innerText = '전송 완료'; }
         });
-    }
-
-    // DOM이 다 만들어진 뒤에 지도 생성
-    document.addEventListener('DOMContentLoaded', initMap);
-</script>
-
-<script src="https://forminit.com/sdk/v1/forminit.js"></script>
-<script>
-    const forminit = new Forminit();
-    const FORM_ID = 'mtqlbgegd3c'; 
-    
-    const contactForm = document.getElementById('contact-form');
-    const resultMsg = document.getElementById('form-result');
-    const submitBtn = document.getElementById('submit-btn');
-    
-    contactForm.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        submitBtn.disabled = true;
-        submitBtn.innerText = '전송 중...';
-        resultMsg.innerText = '';
-
-        const formData = new FormData(contactForm);
-
-        // --- 전화번호 자동 변환 로직 추가 ---
-        let phone = formData.get('fi-sender-phone');
-        if (phone) {
-            // 숫자만 남기기
-            phone = phone.replace(/[^0-9]/g, '');
-            // 010으로 시작하면 한국 국가번호(+82) 붙이기
-            if (phone.startsWith('0')) {
-                phone = '+82' + phone.substring(1);
-            }
-            formData.set('fi-sender-phone', phone);
-        }
-        // --------------------------------
-
-        const { data, error } = await forminit.submit(FORM_ID, formData);
-        
-        if (error) {
-            resultMsg.style.color = '#ef4444';
-            resultMsg.innerText = '오류 발생: ' + error.message;
-            submitBtn.disabled = false;
-            submitBtn.innerText = '다시 시도하기';
-            console.log(error); // 자세한 에러는 개발자 도구 콘솔에서 확인 가능
-            return;
-        }
-        
-        resultMsg.style.color = '#059669';
-        resultMsg.innerText = '성공적으로 전송되었습니다! 도면 확인 후 연락드리겠습니다.';
-        contactForm.reset();
-        submitBtn.innerText = '전송 완료';
-        
-        setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerText = '견적 및 도면 요청하기';
-        }, 3000);
-    });
-</script>
-
+    </script>
 </body>
 </html>
