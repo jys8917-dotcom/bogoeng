@@ -20,6 +20,7 @@
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; word-break: keep-all; }
         .swiper-pagination-bullet-active { background: #2563eb !important; }
+        /* 포트폴리오 캡션 애니메이션을 위한 스타일 */
         .portfolio-overlay { transition: all 0.4s ease-in-out; }
     </style>
 </head>
@@ -168,13 +169,22 @@
                             </div>
                         </a>
                     </div>
+                    <div class="swiper-slide">
+                        <a data-fslightbox="gallery" href="slide5.jpg" class="block aspect-[3/4] bg-gray-100 rounded-2xl overflow-hidden group relative shadow-lg">
+                            <img src="slide5.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8 portfolio-overlay">
+                                <span class="text-blue-300 text-xs font-bold mb-2">#Manufacturing</span>
+                                <h4 class="text-white font-bold text-lg leading-tight">정밀 합성수지 가공</h4>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="swiper-pagination !-bottom-12"></div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="min-h-screen flex items-center py-24 px-6 bg-slate-50">
+<section id="services" class="min-h-screen flex items-center py-24 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto w-full relative z-10">
             <div class="mb-16" data-aos="fade-up"> 
                 <span class="text-blue-600 font-bold tracking-wide text-sm uppercase px-3 py-1 bg-blue-50 rounded-full">Our Services</span>
@@ -275,10 +285,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
     <script src="https://forminit.com/sdk/v1/forminit.js"></script>
     <script>
+        // AOS 초기화
         AOS.init({ duration: 800, once: true });
+        
+        // 내비바 그림자 효과
         window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 50); });
+        
+        // 모바일 메뉴 토글
         document.getElementById('mobile-menu-btn').addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); });
         
+        // 포트폴리오 슬라이더 설정
         new Swiper(".portfolioSwiper", { 
             slidesPerView: 1, 
             spaceBetween: 25, 
@@ -288,6 +304,7 @@
             breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } } 
         });
 
+        // 네이버 지도 초기화
         function initMap() { 
             var bogoPos = new naver.maps.LatLng(36.095147, 128.386190); 
             var map = new naver.maps.Map('map', { center: bogoPos, zoom: 18 }); 
@@ -295,6 +312,7 @@
         }
         document.addEventListener('DOMContentLoaded', initMap);
 
+        // 견적 전송 기능
         const forminit = new Forminit();
         const FORM_ID = 'mtqlbgegd3c'; 
         const contactForm = document.getElementById('contact-form');
@@ -305,12 +323,14 @@
             e.preventDefault();
             submitBtn.disabled = true; submitBtn.innerText = '전송 중...';
             const formData = new FormData(contactForm);
+            
             let phone = formData.get('fi-sender-phone');
             if (phone) { 
                 phone = phone.replace(/[^0-9]/g, ''); 
                 if (phone.startsWith('0')) { phone = '+82' + phone.substring(1); } 
                 formData.set('fi-sender-phone', phone); 
             }
+            
             const { data, error } = await forminit.submit(FORM_ID, formData);
             if (error) { 
                 resultMsg.style.color = '#ef4444'; 
