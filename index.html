@@ -277,7 +277,7 @@
                         <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-400 bg-white text-blue-700 text-sm font-bold z-10 shrink-0 shadow-[0_0_15px_rgba(96,165,250,0.2)] group-hover:bg-blue-600 group-hover:text-white transition-all">03</div>
                         <div class="ml-6 w-full bg-white p-5 rounded-2xl border border-gray-200 shadow-sm transition-all group-hover:border-blue-400">
                             <h4 class="font-bold text-blue-700 text-base">CNC 정밀 가공 및 제작</h4>
-                            <p class="text-sm text-slate-600">최신 설비를 이용한 오차 없는 정밀 제작</p>
+                            <p class="text-sm text-slate-600部署">최신 설비를 이용한 오차 없는 정밀 제작</p>
                         </div>
                     </div>
                     <div class="relative flex items-center group cursor-default">
@@ -360,7 +360,11 @@
                     </div>
                 </div>
                 <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-200" data-aos="fade-left">
-                    <form id="contact-form" class="space-y-4">
+                    <!-- Web3Forms endpoint 연결 완료 -->
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="space-y-4">
+                        <!-- 발급받으신 Web3Forms Access Key를 여기에 입력해 주세요 -->
+                        <input type="hidden" name="access_key" value="92ee486f-7ead-4fb6-b21e-7314d84f1747">
+                        
                         <div class="grid grid-cols-2 gap-4">
                             <input type="text" name="fi-sender-fullName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="담당자명/업체명 *">
                             <input type="tel" name="fi-sender-phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="연락처 *">
@@ -411,60 +415,46 @@
         }
         document.addEventListener('DOMContentLoaded', initMap);
 
-   // Web3Forms 견적 및 도면 전송 기능
-const contactForm = document.getElementById('contact-form');
-const resultMsg = document.getElementById('form-result');
-const submitBtn = document.getElementById('submit-btn');
+        // Web3Forms 전송 기능으로 전면 교체 완료
+        const contactForm = document.getElementById('contact-form');
+        const resultMsg = document.getElementById('form-result');
+        const submitBtn = document.getElementById('submit-btn');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // 버튼 비활성화 및 상태 표시
-    submitBtn.disabled = true; 
-    submitBtn.innerText = '전송 중...';
-    resultMsg.innerText = '';
-    resultMsg.style.color = '#1e3a8a';
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true; 
+            submitBtn.innerText = '전송 중...';
+            resultMsg.innerText = '';
 
-    // 1. Web3Forms 전송을 위한 FormData 객체 생성
-    const formData = new FormData(contactForm);
-    
-    // ⚠️ 발급받으신 Web3Forms Access Key를 아래 따옴표 안에 넣어주세요!
-    formData.append("access_key", "92ee486f-7ead-4fb6-b21e-7314d84f1747");
-    
-    // 2. 메일 제목 설정 (관리자 메일함에서 알아보기 쉽게 세팅)
-    formData.append("subject", `[보고이엔지 견적문의] ${formData.get('fi-sender-fullName')}님의 문의가 접수되었습니다.`);
-    
-    // 3. Web3Forms API로 데이터 전송
-    fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-    })
-    .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
-            // 전송 성공 시
-            resultMsg.style.color = '#059669'; 
-            resultMsg.innerText = '성공적으로 전송되었습니다! 도면 검토 후 빠르게 연락드리겠습니다.'; 
-            contactForm.reset(); 
-        } else {
-            // 서버 에러 발생 시
-            console.log(response);
-            resultMsg.style.color = '#ef4444'; 
-            resultMsg.innerText = json.message || '오류가 발생했습니다. 다시 시도해 주세요.'; 
-        }
-    })
-    .catch(error => {
-        // 네트워크 에러 발생 시
-        console.log(error);
-        resultMsg.style.color = '#ef4444'; 
-        resultMsg.innerText = '서버 연결에 실패했습니다. 인터넷 연결을 확인해 주세요.';
-    })
-    .then(function() {
-        // 최종 버튼 상태 복구
-        submitBtn.disabled = false;
-        submitBtn.innerText = '견적 및 도면 요청하기'; 
-    });
-});
+            const formData = new FormData(contactForm);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    resultMsg.style.color = '#059669'; 
+                    resultMsg.innerText = '성공적으로 전송되었습니다!'; 
+                    contactForm.reset(); 
+                } else {
+                    console.log(response);
+                    resultMsg.style.color = '#ef4444';
+                    resultMsg.innerText = json.message || '오류가 발생했습니다.';
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                resultMsg.style.color = '#ef4444';
+                resultMsg.innerText = '네트워크 오류가 발생했습니다.';
+            })
+            .then(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = '견적 및 도면 요청하기';
+            });
+        });
     </script>
 </body>
 </html>
