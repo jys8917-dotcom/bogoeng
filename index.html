@@ -383,7 +383,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         // AOS 초기화
         AOS.init({ duration: 800, once: true });
@@ -412,43 +411,59 @@
         }
         document.addEventListener('DOMContentLoaded', initMap);
 
-    // EmailJS 초기화 및 견적 전송 기능
-(function() {
-    // ⚠️ 아까 찾으신 Public Key를 아래에 꼭 넣어주세요!
-    emailjs.init("Ma91Pi5LMBMsONVS_"); 
-})();
-
+   // Web3Forms 견적 및 도면 전송 기능
 const contactForm = document.getElementById('contact-form');
 const resultMsg = document.getElementById('form-result');
 const submitBtn = document.getElementById('submit-btn');
 
-contactForm.addEventListener('submit', async function(e) {
+contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     // 버튼 비활성화 및 상태 표시
     submitBtn.disabled = true; 
     submitBtn.innerText = '전송 중...';
     resultMsg.innerText = '';
+    resultMsg.style.color = '#1e3a8a';
 
-    // ⚠️ 아까 찾으신 Service ID와 Template ID를 여기에 적어주세요!
-    const SERVICE_ID = "service_v7r223c";
-    const TEMPLATE_ID = "template_is6u4xc";
-
-    // 폼 데이터를 EmailJS로 직접 전송 (결제 제한 없이 첨부파일 전송이 가능한 핵심 코드)
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm)
-        .then(function() {
+    // 1. Web3Forms 전송을 위한 FormData 객체 생성
+    const formData = new FormData(contactForm);
+    
+    // ⚠️ 발급받으신 Web3Forms Access Key를 아래 따옴표 안에 넣어주세요!
+    formData.append("access_key", "92ee486f-7ead-4fb6-b21e-7314d84f1747");
+    
+    // 2. 메일 제목 설정 (관리자 메일함에서 알아보기 쉽게 세팅)
+    formData.append("subject", `[보고이엔지 견적문의] ${formData.get('fi-sender-fullName')}님의 문의가 접수되었습니다.`);
+    
+    // 3. Web3Forms API로 데이터 전송
+    fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    })
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+            // 전송 성공 시
             resultMsg.style.color = '#059669'; 
-            resultMsg.innerText = '성공적으로 전송되었습니다!'; 
+            resultMsg.innerText = '성공적으로 전송되었습니다! 도면 검토 후 빠르게 연락드리겠습니다.'; 
             contactForm.reset(); 
-            submitBtn.disabled = false;
-            submitBtn.innerText = '견적 및 도면 요청하기'; 
-        }, function(error) {
+        } else {
+            // 서버 에러 발생 시
+            console.log(response);
             resultMsg.style.color = '#ef4444'; 
-            resultMsg.innerText = '오류가 발생했습니다. 다시 시도해 주세요.'; 
-            console.log('FAILED...', error);
-            submitBtn.disabled = false; 
-            submitBtn.innerText = '다시 시도'; 
-        });
+            resultMsg.innerText = json.message || '오류가 발생했습니다. 다시 시도해 주세요.'; 
+        }
+    })
+    .catch(error => {
+        // 네트워크 에러 발생 시
+        console.log(error);
+        resultMsg.style.color = '#ef4444'; 
+        resultMsg.innerText = '서버 연결에 실패했습니다. 인터넷 연결을 확인해 주세요.';
+    })
+    .then(function() {
+        // 최종 버튼 상태 복구
+        submitBtn.disabled = false;
+        submitBtn.innerText = '견적 및 도면 요청하기'; 
+    });
 });
     </script>
 </body>
