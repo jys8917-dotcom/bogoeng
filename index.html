@@ -412,38 +412,44 @@
         }
         document.addEventListener('DOMContentLoaded', initMap);
 
-        // 견적 전송 기능
-        const forminit = new Forminit();
-        const FORM_ID = '4794egjcjk8'; 
-        const contactForm = document.getElementById('contact-form');
-        const resultMsg = document.getElementById('form-result');
-        const submitBtn = document.getElementById('submit-btn');
+    // EmailJS 초기화 및 견적 전송 기능
+(function() {
+    // ⚠️ 아까 찾으신 Public Key를 아래에 꼭 넣어주세요!
+    emailjs.init("Ma91Pi5LMBMsONVS_"); 
+})();
 
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true; submitBtn.innerText = '전송 중...';
-            const formData = new FormData(contactForm);
-            
-            let phone = formData.get('fi-sender-phone');
-            if (phone) { 
-                phone = phone.replace(/[^0-9]/g, ''); 
-                if (phone.startsWith('0')) { phone = '+82' + phone.substring(1); } 
-                formData.set('fi-sender-phone', phone); 
-            }
-            
-            const { data, error } = await forminit.submit(FORM_ID, formData);
-            if (error) { 
-                resultMsg.style.color = '#ef4444'; 
-                resultMsg.innerText = '오류: ' + error.message; 
-                submitBtn.disabled = false; 
-                submitBtn.innerText = '다시 시도'; 
-            } else { 
-                resultMsg.style.color = '#059669'; 
-                resultMsg.innerText = '성공적으로 전송되었습니다!'; 
-                contactForm.reset(); 
-                submitBtn.innerText = '전송 완료'; 
-            }
+const contactForm = document.getElementById('contact-form');
+const resultMsg = document.getElementById('form-result');
+const submitBtn = document.getElementById('submit-btn');
+
+contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // 버튼 비활성화 및 상태 표시
+    submitBtn.disabled = true; 
+    submitBtn.innerText = '전송 중...';
+    resultMsg.innerText = '';
+
+    // ⚠️ 아까 찾으신 Service ID와 Template ID를 여기에 적어주세요!
+    const SERVICE_ID = "service_v7r223c";
+    const TEMPLATE_ID = "template_is6u4xc";
+
+    // 폼 데이터를 EmailJS로 직접 전송 (결제 제한 없이 첨부파일 전송이 가능한 핵심 코드)
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm)
+        .then(function() {
+            resultMsg.style.color = '#059669'; 
+            resultMsg.innerText = '성공적으로 전송되었습니다!'; 
+            contactForm.reset(); 
+            submitBtn.disabled = false;
+            submitBtn.innerText = '견적 및 도면 요청하기'; 
+        }, function(error) {
+            resultMsg.style.color = '#ef4444'; 
+            resultMsg.innerText = '오류가 발생했습니다. 다시 시도해 주세요.'; 
+            console.log('FAILED...', error);
+            submitBtn.disabled = false; 
+            submitBtn.innerText = '다시 시도'; 
         });
+});
     </script>
 </body>
 </html>
